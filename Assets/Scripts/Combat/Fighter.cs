@@ -6,20 +6,11 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour
     {
-        public void Attack()
+        public void Attack(CombatTarget target)
         {
-            
+            print("attack");
         }
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        
     }
 }
 
