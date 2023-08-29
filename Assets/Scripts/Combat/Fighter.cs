@@ -1,3 +1,4 @@
+using RPG.Movement;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +7,25 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour
     {
-        public void Attack(CombatTarget target)
+        [SerializeField] float weaponRange = 2f;
+
+        Transform target;
+        private void Update()
         {
-            print("attack");
+            //bool isInRange = Vector3.Distance(transform.position, target.position) < weaponRange;
+            if (target != null&& !(Vector3.Distance(transform.position, target.position) < weaponRange))
+            {
+                GetComponent<Mover>().MoveTo(target.position);
+            }
+            else
+            {
+                GetComponent<Mover>().Stop();
+                //target = null;
+            }
+        }
+        public void Attack(CombatTarget combatTarget)
+        {
+            target = combatTarget.transform;
         }
         
     }
