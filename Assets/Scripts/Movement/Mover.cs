@@ -11,7 +11,11 @@ namespace RPG.Movement
         [SerializeField] Transform target;
 
         NavMeshAgent navMeshAgent;
-
+        private void Start()
+        {
+            navMeshAgent= GetComponent<NavMeshAgent>();
+            navMeshAgent.isStopped = false;
+        }
         // Update is called once per frame
         private void Start()
         {
@@ -19,7 +23,7 @@ namespace RPG.Movement
         }
         void Update()
         {
-
+            //navMeshAgent.isStopped = false;
             UpdateAnimator();
 
         }
@@ -29,6 +33,10 @@ namespace RPG.Movement
         {
             navMeshAgent.destination = destination;
             navMeshAgent.isStopped = false;
+        }
+        public void Stop()
+        {
+            navMeshAgent.isStopped= true;
         }
 
         private void UpdateAnimator()
