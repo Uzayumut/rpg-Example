@@ -1,2 +1,2 @@
 # rpg-Example
-test p game
+test rpg game
