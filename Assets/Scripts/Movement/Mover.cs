@@ -17,10 +17,7 @@ namespace RPG.Movement
             navMeshAgent.isStopped = false;
         }
         // Update is called once per frame
-        private void Start()
-        {
-            navMeshAgent= GetComponent<NavMeshAgent>();
-        }
+
         void Update()
         {
             //navMeshAgent.isStopped = false;
@@ -46,9 +43,6 @@ namespace RPG.Movement
             float speed = localeVelocity.z;
             GetComponent<Animator>().SetFloat("forwardSpeed", speed);
         }
-        public void Stop()
-        {
-            navMeshAgent.isStopped= true;
-        }
+
     }
 }
