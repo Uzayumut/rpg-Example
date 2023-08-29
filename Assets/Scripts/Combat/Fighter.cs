@@ -11,8 +11,7 @@ namespace RPG.Combat
         Transform target;
         private void Update()
         {
-            //bool isInRange = Vector3.Distance(transform.position, target.position) < weaponRange;
-            //print(isInRange);
+
             if (target != null)
             {
                 if(!(Vector3.Distance(transform.position, target.position) < weaponRange))
@@ -38,6 +37,10 @@ namespace RPG.Combat
         public void Attack(CombatTarget combatTarget)
         {
             target = combatTarget.transform;
+        }
+        public void Cancel()
+        {
+            target = null;
         }
         
     }
