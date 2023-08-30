@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour
+    public class Fighter : MonoBehaviour,IAction
     {
         [SerializeField] float weaponRange = 2f;
         Transform target;
@@ -15,20 +15,20 @@ namespace RPG.Combat
 
             if (target == null) return;
             {
-                if(!GetIsInRange())
+                if (!GetIsInRange())
                 {
                     GetComponent<Mover>().MoveTo(target.position);
                     print("test");
                 }
                 else
                 {
-                    GetComponent<Mover>().Stop();
+                    GetComponent<Mover>().Cancel();
                     //target = null;
                     print("durmasý gerek");
                 }
-                
+
             }
-       
+
         }
         private bool GetIsInRange()
         {
