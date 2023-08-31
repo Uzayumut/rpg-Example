@@ -38,6 +38,7 @@ namespace RPG.Combat
         }
         private void AttackBehaviour()
         {
+            transform.LookAt(target.transform);
             if (timeSinceLastAttack > timeBetweenAttacks)
             {
                 //this will trigger the Hit() event
@@ -59,6 +60,7 @@ namespace RPG.Combat
         }
         public void Attack(CombatTarget combatTarget)
         {
+            
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
         }
